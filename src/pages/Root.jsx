@@ -1,3 +1,5 @@
+import RoutesPrivate from 'components/Routes/Private/Private';
+import StoreProvider from 'components/Store/Provider';
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -9,10 +11,12 @@ import Login from './Login/Login';
 
 const PagesRoot = () => (
   <Router>
-    <Switch>
-      <Route path="/login" component={Login} />
-      <Route path="/" component={Home} />
-    </Switch>
+    <StoreProvider>
+      <Switch>
+        <Route path="/login" component={Login} />
+        <RoutesPrivate path="/" component={Home} />
+      </Switch>
+    </StoreProvider>
   </Router>
 )
 
